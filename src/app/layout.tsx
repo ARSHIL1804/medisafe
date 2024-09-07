@@ -1,8 +1,23 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Mulish, Capriola } from "next/font/google";
 import "./globals.css";
+import Providers from "./providers";
+ 
+const capriola = Capriola({
+  weight: ['400'],
+  subsets: ['latin'],
+  variable: '--font-capriola',
+  fallback:['sans-sarif']
+})
 
-const inter = Inter({ subsets: ["latin"] });
+const mulish = Mulish({
+  weight: ['400'],
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-mulish',
+  fallback:['sans-sarif']
+})
+
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -15,8 +30,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en" className={`${capriola.variable} ${mulish.variable}`}>
+      <body>
+        <main className='w-full h-full '>
+            <Providers>
+              {children}
+            </Providers>
+        </main>
+      </body>
     </html>
   );
 }
