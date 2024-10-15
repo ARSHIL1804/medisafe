@@ -9,7 +9,7 @@ const protectedRoutes = ["dashboard"];
 const doctorRestrictedRoutes = ["records",]
 
 export default async function middleware(req: NextRequest,res:NextResponse) {
-    const sessionRes = await verifySession();
+    const sessionRes:any = await verifySession();
 
     const url = req.nextUrl.pathname.split('/')[1];
     if(!sessionRes && protectedRoutes.includes(url)){

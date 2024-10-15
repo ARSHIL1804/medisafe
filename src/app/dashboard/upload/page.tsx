@@ -278,8 +278,8 @@ export default function UploadRecord() {
                             <div className="relative">
                               <Input
                                 type="file"
-                                onChange={(e) =>
-                                  field.onChange(e?.target?.files[0])
+                                onChange={(e:any) =>
+                                  field.onChange(e?.target?.files? e?.target?.files[0] : null)
                                 }
                                 className="absolute inset-0 opacity-0 w-full h-full cursor-pointer"
                               />

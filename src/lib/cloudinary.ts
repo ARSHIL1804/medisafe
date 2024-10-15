@@ -1,4 +1,4 @@
-import { v2 as cloudinary } from 'cloudinary';
+import { UploadApiResponse, v2 as cloudinary } from 'cloudinary';
 import multer from 'multer';
 
 
@@ -19,7 +19,7 @@ export const uploadFile =  async (image: any) => {
         reject(err);
         return;
       }
-      resolve(result)
+      resolve(result as UploadApiResponse)
     }).end(image)
   })
 }

@@ -41,7 +41,7 @@ export type DoctorType = {
   walletAddress: string;
 };
 export default function DoctorsPage() {
-  const [doctors, setDoctors] = useState<DoctorType>([]);
+  const [doctors, setDoctors] = useState<DoctorType[]>([]);
   const getDoctors = async () => {
     const res = await GET("/api/users/doctors");
     const doctors = res?.doctors || [];

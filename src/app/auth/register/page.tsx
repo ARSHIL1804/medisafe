@@ -45,7 +45,7 @@ export default function Register() {
   const { addUser } = useContract();
   const [isPatientSignUp, setIsPatientSigUp] = useState(true);
   const [currentStep, setCurrentStep] = useState(1);
-  const [form, setForm] = useState();
+  const [form, setForm] = useState<any>();
   const steps = [
     { number: 1, title: "Records Details", isOptional: false },
     { number: 2, title: "Encrypt data", isOptional: false },

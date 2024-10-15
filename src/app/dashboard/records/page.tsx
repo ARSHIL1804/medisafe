@@ -24,7 +24,7 @@ export default function MyFiles() {
   const { getPatientRecords } = useContract();
   const router = useRouter();
   const getRecords = async () => {
-    const records = await getPatientRecords();
+    const records:any = await getPatientRecords();
     setRecords(
       records?.map((value: any, index: number) => {
         return {

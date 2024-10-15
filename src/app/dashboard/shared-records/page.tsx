@@ -30,7 +30,7 @@ export default function MyFiles() {
   const { user } = useAuth();
   const router = useRouter()
   const getRecords = async () => {
-    const records = await getDoctorRecords();
+    const records:any = await getDoctorRecords();
 
     setRecords(
       records?.map((value: any, index: number) => {

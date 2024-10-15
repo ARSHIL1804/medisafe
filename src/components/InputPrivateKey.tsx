@@ -61,7 +61,7 @@ export default function InputPrivateKey({privKeyVarified, setPrivKeyVarified}:an
         <Label>Private Key</Label>
         <div className="flex flex-row gap-2 mt-2">
            <Input value={privKey} onChange={(e)=>setPrivKey(e.target.value)} className="w-[80%]" placeholder="Enter Your Private key" disabled={privKeyVarified} type={privKeyVarified ? "password" : "text"} />
-           <Button onClick={validatePrivateKey} variant={'outline'} disabled={privKeyVarified} value={privKey} onChange={(e)=>setPrivKey(e.target.value)}>
+           <Button onClick={validatePrivateKey} variant={'outline'} disabled={privKeyVarified} value={privKey} onChange={(e:any)=>setPrivKey(e.target.value)}>
               {
                 privKeyVarified ? 'Verified' : 'Verify'
               } 

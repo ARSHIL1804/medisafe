@@ -12,6 +12,7 @@ import { formDataToJson } from "@/lib/utils";
 import mongoose from "mongoose";
 import { DoctorSignupSchema } from "@/lib/models/DoctorSignupModel";
 import { ExceptionModel } from "@/lib/models/ExceptionModel";
+import { UploadApiResponse } from "cloudinary";
 
 
 
@@ -63,7 +64,7 @@ const signupPatient = async (userData: any) => {
     }
 
     const imgBuffer = new Uint8Array(await userData.profileImage.arrayBuffer())
-    const uploadRes = await uploadFile(imgBuffer);
+    const uploadRes:any = await uploadFile(imgBuffer);
     const patientInstance = new Patient({
       username: userData.username,
       usertype: userData.usertype,
@@ -71,7 +72,7 @@ const signupPatient = async (userData: any) => {
       phone: userData.phone,
       email: userData.email,
       dob: userData.dob,
-      profileImage: uploadRes?.url,
+      profileImage: uploadRes.url ?? undefined,
       address: userData.address,
       walletAddress: userData.signMessage.address,
     });
@@ -80,7 +81,7 @@ const signupPatient = async (userData: any) => {
       username: userData.username,
       usertype: userData.usertype,
       walletAddress: userData.signMessage.address,
-      profileImage: uploadRes?.url,
+      profileImage: uploadRes.url,
     });
   
     session.startTransaction();
@@ -114,7 +115,7 @@ const signupDoctor = async (userData: any) => {
     }
   
     const imgBuffer = new Uint8Array(await userData.profileImage.arrayBuffer())
-    const uploadRes = await uploadFile(imgBuffer);
+    const uploadRes:any = await uploadFile(imgBuffer);
 
     console.log({
       username: userData.username,
@@ -125,7 +126,7 @@ const signupDoctor = async (userData: any) => {
       phone: userData.phone,
       email: userData.email,
       dob: userData.dob,
-      profileImage: uploadRes?.url,
+      profileImage: uploadRes.url,
       address: userData.address,
       workDescription: userData.workDescription,
       walletAddress: userData.signMessage.address,
@@ -139,7 +140,7 @@ const signupDoctor = async (userData: any) => {
       phone: userData.phone,
       email: userData.email,
       dob: userData.dob,
-      profileImage: uploadRes?.url,
+      profileImage: uploadRes.url,
       address: userData.address,
       workDescription: userData.workDescription,
       walletAddress: userData.signMessage.address,
@@ -149,7 +150,7 @@ const signupDoctor = async (userData: any) => {
       username: userData.username,
       usertype: userData.usertype,
       walletAddress: userData.signMessage.address,
-      profileImage: uploadRes?.url,
+      profileImage: uploadRes.url,
 
     });
 
@@ -165,7 +166,7 @@ const signupDoctor = async (userData: any) => {
       username: userData.username,
       usertype: userData.usertype,
       walletAddress: userData.signMessage.address,
-      profileImage: uploadRes?.url,
+      profileImage: uploadRes.url,
     }
   }  
   catch(err){
