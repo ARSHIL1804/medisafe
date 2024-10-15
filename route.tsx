@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
 import user from "@/lib/models/PatientSchema";
-import { formSchema } from "@/utils/utils";
 
 
 export async function POST(request: NextRequest) {
