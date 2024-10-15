@@ -13,8 +13,8 @@ export async function GET(req: NextRequest, res: NextResponse) {
         const response = await fetch(url, {
             method: 'GET',
             headers: {
-                'pinata_api_key': process.env.PINATA_API_KEY || '',
-                'pinata_secret_api_key': process.env.PINATA_API_SECRET || ''
+                'NEXT_PINATA_API_KEY': process.env.NEXT_PINATA_API_KEY || '',
+                'pinata_secret_api_key': process.env.NEXT_PINATA_API_SECRET || ''
             }
         });
 

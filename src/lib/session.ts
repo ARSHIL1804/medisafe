@@ -3,7 +3,7 @@ import { SignJWT, jwtVerify } from "jose"
 import { cookies } from "next/headers"
 import UserContextModel from './models/UserContextModel'
 
-const key = new TextEncoder().encode(process.env.JWT_TOKEN)
+const key = new TextEncoder().encode(process.env.NEXT_JWT_TOKEN)
 
 const cookie = {
     name: 'session',
