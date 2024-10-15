@@ -1,0 +1,16 @@
+[package]
+name = "medisafe_v6"
+version = "1.0.0"
+authors = []
+
+[addresses]
+medisafe_addr="0xa339863c16bc586abceb642a1dd9b6ac667fcf66ab8a185c503f0f82fdd73240"
+
+[dev-addresses]
+
+[dependencies.AptosFramework]
+git = "https://github.com/aptos-labs/aptos-core.git"
+rev = "mainnet"
+subdir = "aptos-move/framework/aptos-framework"
+
+[dev-dependencies]
